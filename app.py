@@ -22,13 +22,16 @@ def hello():
 
 @app.route('/count', methods=['POST'])
 def word_count():
-    rq_result = get_mongo_db().tasks.insert_one({'text': (request.form['text'])})
+    rq_result = get_mongo_db().word_count.insert_one({'text': (request.form['text'])})
     get_result()
-    return redirect(f'/result/{str(rq_result.inserted_id)}')
-    result(request.form['text'])
+    return redirect('/answer')
 	
+@app.route('/answer')
+def result():
+	return render_template("answer.html")
+
 def get_result():
     subprocess.Popen("bash server.sh", shell=True)
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app.run()
