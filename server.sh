@@ -1,1 +1,1 @@
-ssh mgolubeva@40.127.108.18 python3 app.py
+ssh -i ~/.ssh/name mgolubeva@40.127.108.18 python3 app.py
