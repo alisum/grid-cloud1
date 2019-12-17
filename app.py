@@ -28,7 +28,8 @@ def word_count():
     
 @app.route('/answer')
 def result():
-    text = list(get_mongo_db().find({}))[-1]
+    text = list(get_mongo_db().find().sort([('$natural', -1)]).limit(1))
+    print(text)
     text = text.get('result')
     return render_template("answer.html", answer=text)
 
