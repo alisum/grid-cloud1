@@ -28,8 +28,8 @@ def word_count():
 	
 @app.route('/answer')
 def result():
-    res = list(get_mongo_db().find({}))[-1]
-    res = res.get('text')
+#    text = list(get_mongo_db().find({}))[-1]
+#    text = text.get('text')
     return render_template("answer.html")
 
 def get_result():
