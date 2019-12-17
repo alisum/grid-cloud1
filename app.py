@@ -25,7 +25,7 @@ def word_count():
     rq_result = get_mongo_db().word_count.insert_one({'text': (request.form['text'])})
     get_result()
     return redirect('/answer')
-	
+    
 @app.route('/answer')
 def result():
 #    text = list(get_mongo_db().find({}))[-1]
@@ -33,7 +33,7 @@ def result():
     return render_template("answer.html", answer="2")
 
 def get_result():
-	print('starting vm')
+    print('starting vm')
     subprocess.run(["az", "vm", "start", "--name", "grid-cloud2", "--resource-group", "grid-cloud"])
     print('running app')
     subprocess.run(["ssh", "-i", "name", "mgolubeva@40.127.108.18", "python3", "app.py"])
