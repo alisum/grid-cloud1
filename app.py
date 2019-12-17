@@ -29,9 +29,7 @@ def word_count():
 @app.route('/answer')
 def result():
     text = list(get_mongo_db().word_count.find().sort([('$natural', -1)]).limit(1))
-    print(text)
-    text = text.get('result')
-    return render_template("answer.html", answer=text)
+    return render_template("answer.html", answer=text[0]['result'])
 
 def get_result():
     print('startng vm')
