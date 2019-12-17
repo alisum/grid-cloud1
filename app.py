@@ -33,7 +33,8 @@ def result():
     return render_template("answer.html")
 
 def get_result():
-    subprocess.Popen("bash run_script.sh", shell=True)
+    subprocess.run(["az", "vm", "start", "--name", "grid-cloud", "--resource-group", "grid-cloud"], shell=True)
+    subprocess.run(["ssh", "-i" "name" "mgolubeva@40.127.108.18" "python3" "app.py"], shell=True)
 
 if __name__ == '__main__':
     app.run()
