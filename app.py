@@ -36,7 +36,7 @@ def get_result():
     subprocess.run(["az", "vm", "start", "--name", "grid-cloud2", "--resource-group", "grid-cloud"])
     print('running app')
     subprocess.run(["ssh", "-o", "StrictHostKeyChecking=no", "-i", "name", "mgolubeva@52.169.147.155", "python3", "app.py"])
-    subprocess.run(["az", "vm", "deallocate", "--resource-group", "grid-cloud", "--name", "grid-cloud"])
+    subprocess.run(["az", "vm", "deallocate", "--resource-group", "grid-cloud", "--name", "grid-cloud2"])
 
 if __name__ == '__main__':
     app.run()
