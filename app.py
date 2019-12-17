@@ -30,11 +30,11 @@ def word_count():
 def result():
 #    text = list(get_mongo_db().find({}))[-1]
 #    text = text.get('text')
-    return render_template("answer.html")
+    return render_template("answer.html", answer="2")
 
 def get_result():
-    subprocess.run(["az", "vm", "start", "--name", "grid-cloud", "--resource-group", "grid-cloud"], shell=True)
-    subprocess.run(["ssh", "-i" "name" "mgolubeva@40.127.108.18" "python3" "app.py"], shell=True)
+    subprocess.run(["az", "vm", "start", "--name", "grid-cloud", "--resource-group", "grid-cloud"])
+    subprocess.run(["ssh", "-i" "name" "mgolubeva@40.127.108.18" "python3" "app.py"])
 
 if __name__ == '__main__':
     app.run()
