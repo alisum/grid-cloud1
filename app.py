@@ -28,15 +28,15 @@ def word_count():
     
 @app.route('/answer')
 def result():
-#    text = list(get_mongo_db().find({}))[-1]
-#    text = text.get('text')
-    return render_template("answer.html", answer="2")
+    text = list(get_mongo_db().find({}))[-1]
+    text = text.get('result')
+    return render_template("answer.html", answer=text)
 
 def get_result():
     print('startng vm')
     subprocess.run(["az", "vm", "start", "--name", "grid-cloud2", "--resource-group", "grid-cloud"])
     print('running app')
-    subprocess.run(["ssh", "-i", "name", "mgolubeva@52.169.147.155", "python3", "app.py"])
+    subprocess.run(["ssh", "-o", "StrictHostKeyChecking=no", "-i", "name", "mgolubeva@52.169.147.155", "python3", "app.py"])
 
 if __name__ == '__main__':
     app.run()
