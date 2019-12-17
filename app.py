@@ -33,7 +33,7 @@ def result():
     return render_template("answer.html", answer="2")
 
 def get_result():
-    subprocess.run(["az", "vm", "start", "--name", "grid-cloud", "--resource-group", "grid-cloud"])
+    subprocess.run(["az", "vm", "start", "--name", "grid-cloud2", "--resource-group", "grid-cloud"])
     subprocess.run(["ssh", "-i" "name" "mgolubeva@40.127.108.18" "python3" "app.py"])
 
 if __name__ == '__main__':
