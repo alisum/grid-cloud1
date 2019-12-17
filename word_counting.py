@@ -7,7 +7,7 @@ def get_mongo_db():
 
 def word_count():
     text = list(get_mongo_db().find({}))[-1]
-    text = text.get('qwerty')
+    text = text.get('text')
     text = str(text)
 
     # Cleaning text and lower casing all words
@@ -20,7 +20,7 @@ def word_count():
     c = sum(map(lambda x: x[1], word_count))
 
     collection = get_mongo_db()
-    collection.insert_one({'result': (c)})
+    collection.insert_one({'text': (c)})
 
 if __name__ == '__main__':
     word_count()
