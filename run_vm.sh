@@ -1,0 +1,1 @@
+az vm start --name grid-cloud --resource-group grid-cloud

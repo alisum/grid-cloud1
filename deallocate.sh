@@ -1,0 +1,1 @@
+az vm deallocate --resource-group grid-cloud --name grid-cloud

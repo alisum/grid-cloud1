@@ -28,10 +28,12 @@ def word_count():
 	
 @app.route('/answer')
 def result():
+    res = list(get_mongo_db().find({}))[-1]
+    res = res.get('text')
 	return render_template("answer.html")
 
 def get_result():
-    subprocess.Popen("bash server.sh", shell=True)
+    subprocess.Popen("bash run_script.sh", shell=True)
 
 if __name__ == '__main__':
     app.run()

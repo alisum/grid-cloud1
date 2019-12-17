@@ -20,7 +20,7 @@ def word_count():
     c = sum(map(lambda x: x[1], word_count))
 
     collection = get_mongo_db()
-    collection.insert_one({'text': (c)})
+    collection.insert_one({'text': c})
 
 if __name__ == '__main__':
     word_count()
