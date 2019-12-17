@@ -30,7 +30,7 @@ def word_count():
 def result():
     res = list(get_mongo_db().find({}))[-1]
     res = res.get('text')
-	return render_template("answer.html")
+    return render_template("answer.html")
 
 def get_result():
     subprocess.Popen("bash run_script.sh", shell=True)
